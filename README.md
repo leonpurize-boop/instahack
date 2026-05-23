@@ -36,4 +36,4 @@ npm start
 
 ## Lizenz
 
-MIT
+MIT npm start
