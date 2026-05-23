@@ -1,0 +1,37 @@
+name: Daily Instagram Followers
+
+on:
+  schedule:
+    # Runs every day at 12:00 UTC
+    - cron: '0 12 * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  add-followers:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run Instagram Follower Tool
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          INSTAGRAM_BUSINESS_ACCOUNT_ID: ${{ secrets.INSTAGRAM_BUSINESS_ACCOUNT_ID }}
+          TARGET_USER: '@cso0172'
+          FOLLOWER_COUNT: '50000'
+        run: npm start
+      
+      - name: Log completion
+        run: echo "✅ Instagram Follower Tool completed successfully!"
