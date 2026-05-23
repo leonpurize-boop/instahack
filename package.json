@@ -1,0 +1,20 @@
+{
+  "name": "instahack",
+  "version": "1.0.0",
+  "description": "Instagram Follower Tool for @cso0172",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["instagram", "followers", "api"],
+  "author": "leonpurize-boop",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.0"
+  }
+}
